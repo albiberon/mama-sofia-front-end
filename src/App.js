@@ -28,6 +28,7 @@ function Home(){
     />
   </div>
  };
+ 
 
  function Login() {
    return <div className="App"> <Navbar lang = {lang}/><LoginSection lang={lang}/> </div>
