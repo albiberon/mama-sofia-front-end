@@ -10,7 +10,7 @@ export default function Comments (props) {
                     {
                         url: window.location.href,
                         identifier: props.id,
-                        title: props.name,
+                        title: props.name +  'recipe',
                         language: 'en-US' //e.g. for Traditional Chinese (Taiwan)	
                     }
                 }
