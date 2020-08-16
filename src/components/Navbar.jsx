@@ -1,8 +1,11 @@
 import React from "react";
 import logo from "../../src/mamasofia-logo.svg";
 import { Link } from "react-router-dom";
+import Language from './Language'
 
-function Navbar() {
+const dynatext = require("dyna-gettext");
+
+function Navbar(props) {
   return <nav className="navbar navbar-expand-md navbar-light bg-light">
     <Link to="/" className="navbar-brand" aria-label="Home">
       <img src={logo} width="290" height="50" alt="Recette logo" />
@@ -13,16 +16,22 @@ function Navbar() {
     <div className="collapse navbar-collapse" id="navbarSupportedContent navbarCollapse">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item active">
-          <Link to="/" className="nav-link" aria-label="Home">Home</Link>
+        <Link to="/" className="nav-link" aria-label="Home">
+          {dynatext.getText("home", {id: "translations", "lang": props.lang || "en"})}
+        </Link>
         </li>
         <li className="nav-item">
-          <Link to="/mission" className="nav-link" aria-label="Our mission">Our mission</Link>
+          <Link to="/mission" className="nav-link" aria-label="Our mission">
+          {dynatext.getText("mission", {id: "translations", "lang": props.lang || "en"})}
+          </Link>
         </li>
         <li className="nav-item">
           <Link to="/api" className="nav-link" aria-label="Api">API</Link>
         </li>
         <li className="nav-item">
-          <Link to="/mission" className="nav-link" aria-label="Disclaimer">Disclaimer</Link>
+          <Link to="/mission" className="nav-link" aria-label="Disclaimer">
+          {dynatext.getText("disclaimer", {id: "translations", "lang": props.lang || "en"})}
+          </Link>
         </li>
       </ul>
 
@@ -45,6 +54,9 @@ function Navbar() {
               <path d="M15.293 3.207a1 1 0 011.414 0l.03.03a1 1 0 01.03 1.383L15.5 6 14 4.5l1.293-1.293z" />
             </svg>
             </Link>
+          </li>
+          <li className="nav-item">
+            <Language/>
           </li>
         </ul>
 
