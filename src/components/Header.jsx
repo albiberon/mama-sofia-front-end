@@ -13,10 +13,12 @@ var backgroundImage = {
   backgroundSize: "cover"
 };
 
-function Header() {
-return <header className="masthead text-white text-center" style={ backgroundImage }>
+function Header(props) {
+return <header data-testid = 'header' className="masthead text-white text-center" style={ backgroundImage }>
 
-<MealSuggestions/>
+<MealSuggestions
+  lang = {props.lang}
+/>
     
   </header>
   };
