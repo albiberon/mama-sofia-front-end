@@ -18,9 +18,7 @@ function SingleRecipe(props) {
         const fetchData = async () =>{
             //const res = await fetch(`https://enigmatic-crag-17408.herokuapp.com/recipe/${props._id}`);
             const res = await fetch(`http://localhost:8081/recipe/${props._id}`);
-            // res.json().then((res) => setRecipe(Object.assign(res._doc, {suggestions: res.suggestions})));
-
-            res.json().then((res) => setRecipe(Object.assign(res, {suggestions: res.suggestions})));
+            res.json().then((res) => setRecipe(Object.assign(res._doc, {suggestions: res.suggestions})));
         }
         fetchData();
     }, [props._id]);
@@ -105,7 +103,7 @@ function SingleRecipe(props) {
                             <br />
                             <div className = "row">
                                 {
-                                    recipe.suggestions? recipe.suggestions.map(suggestion => {
+                                    recipe.suggestions ? recipe.suggestions.map(suggestion => {
                                         return (
                                             <RecipeCard
                                                 img={suggestion.imgURL}
